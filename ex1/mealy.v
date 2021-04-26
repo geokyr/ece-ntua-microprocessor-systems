@@ -10,9 +10,9 @@ module Mealy_Model(y, x, clock, reset);
     else case(state)
     a: if(x) state <= a; else state <= d;
     b: if(x) state <= a; else state <= c;
-    c: if(x) state <= d; else state <= b;
+    c: if(x) state <= b; else state <= d;
     d: if(x) state <= d; else state <= c;
     endcase
     assign y = (state[1] & state[0] & x) | (~state[0] & ~x) | 
-               (~state[1] & x);
+               (~state[1] & ~x);
 endmodule

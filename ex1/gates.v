@@ -67,9 +67,9 @@ endmodule
 
 // Dataflow
 
-module dataFlow(A, B, C, D, E, F1, F2, F3);
-	    input A, B, C, D, E;
-    output F1, F2, F3;
+module dataFlow(A, B, C, D, E, F1, F2, F3, F4);
+	input A, B, C, D, E;
+    output F1, F2, F3, F4;
     assign
         F1 = (A & ((B & C) | D)) | (~A & ~B & D) ,
 
