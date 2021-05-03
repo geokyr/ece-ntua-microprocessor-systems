@@ -1,0 +1,127 @@
+START:
+	IN 10H
+	LDA 2000H
+	CALL XOR1
+	CALL XOR2
+	CALL AND1
+	CALL AND2
+	CALL XOR3
+	CALL OR1
+
+	MVI B,00H
+
+	LDA 0A04H
+	MOV B,A
+
+	LDA 0A01H
+	RRC
+	ADD B
+	MOV B,A
+
+	LDA 0A05H
+	RRC 
+	RRC 
+	ADD B
+	MOV B,A
+
+	LDA 0A03H
+	RRC 
+	RRC 
+	RRC
+	ADD B
+	MOV B,A
+
+	MOV A,B
+	CMA
+	STA 3000H
+	JMP START
+
+; =================
+
+XOR1:
+	LXI H,0A00H
+	MOV D,A
+
+	ANI 01H
+	MOV B,A
+	MOV A,D
+	ANI 02H
+	RRC
+	XRA B
+	MOV M,A
+	MOV A,D
+	RET
+
+; =================
+
+XOR2:
+	LXI H,0A01H
+	MOV D,A	
+
+	ANI 04H
+	MOV B,A
+	MOV A,D
+	ANI 08H
+	RRC
+	XRA B
+	MOV M,A
+	MOV A,D
+	RET
+
+; =================
+
+AND1:
+	LXI H,0A02H
+	MOV D,A
+	
+	ANI 10H	
+	MOV B,A
+	MOV A,D
+	ANI 20H
+	RRC
+	ANA B	
+	MOV M,A
+	MOV A,D
+	RET
+
+; =================
+AND2:
+	LXI H,0A03H
+	MOV D,A
+	
+	ANI 40H
+	MOV B,A	
+	MOV A,D
+	ANI 80H
+	RRC	
+	ANA B	
+	MOV M,A
+	MOV A,D
+	RET
+
+; =================
+XOR3:
+	LDA 0A00H
+	MOV B,A
+	LDA 0A01H
+	RRC 
+	RRC
+	XRA B
+	STA 0A04H
+	RET
+
+; =================
+
+OR1:
+	LDA 0A02H
+	MOV B,A
+	LDA 0A03H
+	RRC 
+	RRC
+	ORA B
+	STA 0A05H
+	RET
+
+; =================
+
+END
