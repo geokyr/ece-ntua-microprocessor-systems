@@ -36,8 +36,6 @@ START:
 	STA 3000H
 	JMP START
 
-; =================
-
 XOR1:
 	LXI H,0A00H
 	MOV D,A
@@ -51,8 +49,6 @@ XOR1:
 	MOV M,A
 	MOV A,D
 	RET
-
-; =================
 
 XOR2:
 	LXI H,0A01H
@@ -68,8 +64,6 @@ XOR2:
 	MOV A,D
 	RET
 
-; =================
-
 AND1:
 	LXI H,0A02H
 	MOV D,A
@@ -83,8 +77,6 @@ AND1:
 	MOV M,A
 	MOV A,D
 	RET
-
-; =================
 
 AND2:
 	LXI H,0A03H
@@ -100,8 +92,6 @@ AND2:
 	MOV A,D
 	RET
 
-; =================
-
 XOR3:
 	LDA 0A00H
 	MOV B,A
@@ -112,8 +102,6 @@ XOR3:
 	STA 0A04H
 	RET
 
-; =================
-
 OR1:
 	LDA 0A02H
 	MOV B,A
@@ -123,7 +111,5 @@ OR1:
 	ORA B
 	STA 0A05H
 	RET
-
-; =================
 
 END

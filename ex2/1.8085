@@ -3,8 +3,6 @@ START:
 	CALL MAIN
 	RST 1
 
-; =================
-
 MAIN:
 	MVI A,00H
 	LXI H,0900H
@@ -34,8 +32,6 @@ OUTSIDE:
 ENDED:
 	MOV M,A
 	RET
-
-; =================
 
 SECOND:
 	RAR
