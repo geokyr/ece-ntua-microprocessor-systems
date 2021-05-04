@@ -85,6 +85,7 @@ AND1:
 	RET
 
 ; =================
+
 AND2:
 	LXI H,0A03H
 	MOV D,A
@@ -100,6 +101,7 @@ AND2:
 	RET
 
 ; =================
+
 XOR3:
 	LDA 0A00H
 	MOV B,A

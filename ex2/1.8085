@@ -3,7 +3,7 @@ START:
 	CALL MAIN
 	RST 1
 
-; ---------------
+; =================
 
 MAIN:
 	MVI A,00H
@@ -35,52 +35,50 @@ ENDED:
 	MOV M,A
 	RET
 
-; ---------------
+; =================
 
 SECOND:
 	RAR
-	JC COUNT1
+	JNC COUNT1
 	INX B
 
 COUNT1:
 	RAR
-	JC COUNT2
+	JNC COUNT2
 	INX B
 
 COUNT2:
 	RAR
-	JC COUNT3
+	JNC COUNT3
 	INX B
 
 COUNT3:
 	RAR
-	JC COUNT4
+	JNC COUNT4
 	INX B
 
 COUNT4:
 	RAR
-	JC COUNT5
+	JNC COUNT5
 	INX B
 
 COUNT5:
 	RAR
-	JC COUNT6
+	JNC COUNT6
 	INX B
 
 COUNT6:
 	RAR
-	JC COUNT7
+	JNC COUNT7
 	INX B
 
 COUNT7:
 	RAR
-	JC COUNT8
+	JNC COUNT8
 	INX B
 
 COUNT8:
 	RAR
 	RET
-
-; ---------------
 
 END
