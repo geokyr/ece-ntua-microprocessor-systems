@@ -1,0 +1,87 @@
+START:	
+	IN 10H			
+	LXI H,0A00H		
+				
+	MVI M,10H		
+	INX H			
+	MVI M,10H	
+	INX H				
+	INX H
+	INX H
+	MVI M,10H		
+	INX H			
+	MVI M,10H
+
+	MVI A,0DH	
+	SIM				
+	EI
+
+WAIT:				
+	JMP WAIT
+
+;-----------------------
+
+INTR_ROUTINE:
+	MVI E,3CH
+	LXI B,0032H
+	EI
+
+INIT:
+	MVI D,14H
+	CALL NEXT_SEC
+	
+	ANI 00H
+	STA 3000H
+
+L1:
+	CALL DISP
+	CALL DELB
+	DCR D
+	JNZ L1
+	
+	DCR E
+	JNZ INIT
+	
+	CMA
+	STA 3000H	
+	JMP WAIT
+
+;-----------------------
+
+NEXT_SEC:
+	PUSH PSW
+	PUSH B
+	PUSH H
+	
+	MVI B,FFH
+	MOV A,E
+
+L3: 	INR B
+	SUI 0AH
+	JNC L3
+
+	ADI 0AH
+	LXI H,0A02H
+	MOV M,A
+	INX H
+	MOV M,B
+
+	POP H
+	POP B
+	POP PSW
+	RET
+
+;-----------------------
+
+DISP:
+	PUSH PSW
+	PUSH D
+	LXI D,0A00H
+
+	CALL STDM
+	CALL DCD
+	POP D
+	POP PSW
+	RET
+
+END
