@@ -1,0 +1,56 @@
+MAIN:
+    MVI A,0DH
+    SIM
+    LXI H,0000H
+    MVI C,40H
+    EI
+
+WAIT:
+    MOV A,C
+    CPI 00H
+    JNZ WAIT
+
+    DI
+    DAD H
+    DAD H
+    DAD H
+    HLT
+
+0034: 
+    JMP RST6.5
+
+RST6.5:
+    PUSH PSW
+    
+    MOV A,C
+    ANI 01H
+    CPI 00H
+    JNZ GET_MSBS
+
+GET_LSBS: 
+    IN 20H
+    ANI 0FH
+    MVI D,00H
+    MOV E,A
+    DCR C
+    JMP EXIT
+
+GET_MSBS:
+    IN 20H
+    ANI 0FH
+    RLC
+    RLC
+    RLC
+    RLC
+    MVI D,00H
+    ORA E
+    MOV E,A
+    DAD D
+    DCR C
+    
+EXIT:
+    POP PSW
+    EI
+    RET
+
+END

@@ -19,8 +19,6 @@ START:
 WAIT:				
 	JMP WAIT
 
-;-----------------------
-
 INTR_ROUTINE:
 	MVI E,3CH
 	LXI B,0032H
@@ -46,8 +44,6 @@ L1:
 	STA 3000H	
 	JMP WAIT
 
-;-----------------------
-
 NEXT_SEC:
 	PUSH PSW
 	PUSH B
@@ -56,7 +52,8 @@ NEXT_SEC:
 	MVI B,FFH
 	MOV A,E
 
-L3: 	INR B
+L3: 	
+	INR B
 	SUI 0AH
 	JNC L3
 
@@ -70,8 +67,6 @@ L3: 	INR B
 	POP B
 	POP PSW
 	RET
-
-;-----------------------
 
 DISP:
 	PUSH PSW

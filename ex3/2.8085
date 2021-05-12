@@ -25,9 +25,8 @@ FILL:
 WAIT:				
 	JMP WAIT
 
-;-----------------------
-
 INTR_ROUTINE:
+	DI
 	CALL KIND
 	STA 0A04H
 	MOV B,A
@@ -70,7 +69,7 @@ FINAL:
 	CALL STDM
 	POP D
 	EI
-
+	
 DISP:
 	CALL DCD
 	JMP DISP

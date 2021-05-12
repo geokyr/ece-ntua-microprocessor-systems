@@ -1,0 +1,53 @@
+MAIN:
+    LXI H,0000H
+    MVI C,40H
+
+READY:
+    MOV A,C
+    CPI 00H
+    JZ AVERAGE
+    
+    IN 20H
+    MOV B,A
+    RAL
+    JC SELECT
+    JMP READY
+
+SELECT:  
+    MOV A,C
+    ANI 01H
+    CPI 00H
+    JNZ GET_MSBS
+
+GET_LSBS: 
+    MOV A,B
+    ANI 0FH
+    MVI D,00H
+    MOV E,A
+    DCR C
+    JMP EXIT
+
+GET_MSBS:
+    MOV A,B
+    ANI 0FH
+    RLC
+    RLC
+    RLC
+    RLC
+    MVI D,00H
+    ORA E
+    MOV E,A
+    DAD D
+    DCR C
+    
+EXIT:
+    IN 20H
+    RAL
+    JC EXIT
+    JMP READY
+
+AVERAGE:
+    DAD H
+    DAD H
+    DAD H
+    END
