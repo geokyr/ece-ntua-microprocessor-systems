@@ -1,34 +1,27 @@
-/*
- * lab2.c
- *
- * Created: 19-May-21 00:32:13
- * Author : george
- */ 
-
 #include <avr/io.h>
-unsigned char a, b, c, d, notc, temp, f0, f1, ans;
+unsigned char A, B, C, D, notC, temp, F0, F1, ans;
 
 int main(void) {
-	DDRA = 0x00;
-	DDRB = 0xFF;
+	DDRA = 0x00;			// input
+	DDRB = 0xFF;			// output
  
     while (1) {
-		a = PINA & 0x01;
-		b = PINA & 0x02;
-		b = b >> 1;
-		c = PINA & 0x04;
-		c = c >> 2;
-		d = PINA & 0x08;
-		d = d >> 3;
+		A = PINA & 0x01;	// keep lsb only
+		B = PINA & 0x02;	// keep 2nd lsb 
+		B = B >> 1;			// and shift it to lsb
+		C = PINA & 0x04;	// keep 3rd lsb
+		C = C >> 2;			// and shift it to lsb
+		D = PINA & 0x08;	// keep 4th lsb
+		D = D >> 3;			// and shift it to lsb
 	
-		notc = c ^ 0x01;	
-		temp = ((a & b & notc) | (c & d));
+		notC = C ^ 0x01;	// C complement
+		temp = ((A & B & notC) | (C & D));
 		
-		f0 = temp ^ 0x01;
-		f1 = (a | b) & (c | d);
+		F0 = temp ^ 0x01;	
+		F1 = (A | B) & (C | D);
 		
-		f1 = f1 << 1;
-		ans = f0 + f1;
-		PORTB = ans;
+		F1 = F1 << 1;		// shift F1 to 2nd lsb
+		ans = F0 + F1;		// add F1 and F0 for output
+		PORTB = ans;		// send it to PORTB
     }
 }

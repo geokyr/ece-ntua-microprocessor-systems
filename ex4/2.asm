@@ -1,10 +1,3 @@
-;
-; lab2'.asm
-;
-; Created: 19-May-21 01:49:36
-; Author : george
-;
-
 .include "m16def.inc"
 
 .DEF A = r16 
@@ -25,8 +18,7 @@ IO_set:	ser r24			; initialize PORTB
 		clr r24			; initialize PORTA
 		out DDRA, r24	; for input
 
-main:	clr F			; ready F
-		in T, PINB		; T <-- input
+main:	in T, PINA		; T <- input
 		andi T, 0x0F	; keep only 4 LSBs
 
 		mov A, T		; LSB(A) = A
@@ -39,10 +31,9 @@ main:	clr F			; ready F
 
 		mov T, B		; save B in T
 		or T, A			; T = A + B
-		mov F, C		; F = C
-		or F, D			; F = C + D
-		mov F1, F		; F1 = C + D
-		and F1, T		; F1 = (A + B) & (C + D)
+		mov F1, C		; F1 = C
+		or F1, D		; F1 = C + D
+		and F1, T		; LSB(F1) = (A + B) & (C + D)
 
 		mov T, C		; T = C
 		com T			; T = C'
@@ -51,11 +42,13 @@ main:	clr F			; ready F
 		mov F0, C		; F0 = C
 		and F0, D		; F0 = CD
 		or F0, T		; F0 = ABC' + CD
-		com F0			; F0 = (ABC' + CD)'
+		com F0			; LSB(F0) = (ABC' + CD)'
 
 		lsl F1			; F1 is moved to 2nd LSB
+		andi F1, 0x02	; keep only 2nd LSB
+		andi F0, 0x01	; keep only 1st LSB
 		mov T, F1		; T = 000000(F1)0
 		or T, F0		; T = 000000(F1)(F0)
-		out PORTA, T
+		out PORTB, T
 
 		rjmp main
