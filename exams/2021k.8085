@@ -1,0 +1,52 @@
+START:
+    IN 20H
+    MOV B,A
+    ANI 0CH
+    CPI 0CH
+    JZ ONE
+    MOV A,B
+    ANI F0H
+    CPI F0H
+    JZ ONE
+    MVI A,00H
+    JMP ZERO
+ONE:
+    MVI A,01H
+ZERO:
+    OUT 30H
+    JMP START
+    END
+
+;------------;
+
+MOVING MACRO N
+    PUSH PSW
+    PUSH B
+    
+    MOV B,A
+    MVI A,N
+    CPI 00H
+    JZ REGC
+    CPI 01H
+    JZ REGD
+    CPI 02H
+    JZ REGE
+    CPI 03H
+    JZ REGH
+    JMP END
+REGC:
+    MOV B,C
+    JMP END
+REGD:
+    MOV B,D
+    JMP END
+REGE:
+    MOV B,E
+    JMP END
+REGH:
+    MOV B,H
+END:
+    POP PSW
+    MOV A,B
+    POP B
+    ENDM
