@@ -1,0 +1,56 @@
+START:
+    IN 20H
+    ANI 01H
+    CPI 01H
+    JZ START
+    
+    MVI A,80H
+    OUT 30H
+
+INITIALIZE:
+    MVI B,C8H
+
+LOOP:
+    CALL DSEC
+
+    IN 20H
+    ANI 01H
+    CPI 00H
+    JZ INITIALIZE
+
+    DCR B
+    JNZ LOOP
+
+    MVI A,00H
+    OUT 30H
+    JMP START
+
+;-----------------;
+
+MIN MACRO
+    PUSH PSW
+    PUSH C
+    MOV A,B
+    CMP D
+    JC CMPBE
+    MOV A,E
+    CMP D
+    JC FINALE
+    MOV C,D
+    JMP END
+CMPBE:
+    CMP E
+    JC FINALB
+    MOV C,E
+    JMP END
+FINALB:
+    MOV C,B
+    JMP END
+FINALE:
+    MOV C,E
+END:
+    POP PSW
+    MOV A,C
+    POP C
+ENDM
+
