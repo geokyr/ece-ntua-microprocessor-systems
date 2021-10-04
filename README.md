@@ -1,4 +1,4 @@
 micro
 -----
 
-Repository for the Microcomputer Systems of Materials course.
+Repository for the Microcomputer Systems course.
