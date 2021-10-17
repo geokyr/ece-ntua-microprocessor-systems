@@ -1,4 +1,4 @@
 micro
 -----
 
-Repository for the Microcomputer Systems course.
+Repository for the Microprocessor Systems course.
