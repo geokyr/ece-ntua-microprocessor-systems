@@ -1,0 +1,70 @@
+START:
+    LDA 2000H
+    MOV B, A
+    MOV C, A
+    RAR
+    ANA C
+    MOV C, A
+
+    MOV A, B
+    RAR
+    RAR
+    ANA C
+    MOV C, A
+
+    MOV A, B
+    RAR
+    RAR
+    RAR
+    ANA C
+    MOV C, A    ; C(LSB) = x1x2x3x4
+
+    MOV A, B
+    RAR
+    RAR
+    RAR
+    RAR
+    MOV D, A
+    RAR
+    ANA D       ; A(LSB) = x5x6
+    
+    ORA C       ; A(LSB) = x1x2x3x4 + x5x6
+    ANI 01H
+    RAL
+
+    STA 3000H
+    JMP START
+    END
+
+;--------------------;
+
+MOVING MACRO N
+    MVI A, N    ; We only use A and return it so nothing to push/pop
+    CPI 00H
+    JZ MOVBA
+    CPI 01H
+    JZ MOVCA
+    CPI 02H
+    JZ MOVDA
+    CPI 03H
+    JZ MOVEA
+    JMP EXIT
+
+MOVBA:
+    MOV A, B
+    JMP EXIT
+
+MOVCA:
+    MOV A, B
+    JMP EXIT
+
+MOVDA:
+    MOV A,D
+    JMP EXIT
+
+MOVEA:
+    MOV A,E
+    JMP EXIT
+
+EXIT:
+    ENDM

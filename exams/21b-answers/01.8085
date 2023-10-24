@@ -25,7 +25,7 @@ LOOP:
     OUT 30H
     JMP START
 
-;-----------------;
+;--------------------;
 
 MIN MACRO
     PUSH PSW
@@ -38,16 +38,20 @@ MIN MACRO
     JC FINALE
     MOV C,D
     JMP END
+
 CMPBE:
     CMP E
     JC FINALB
     MOV C,E
     JMP END
+
 FINALB:
     MOV C,B
     JMP END
+
 FINALE:
     MOV C,E
+
 END:
     POP PSW
     MOV A,C
