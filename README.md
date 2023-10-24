@@ -2,6 +2,11 @@
 
 Lab Assignments and Exam Answers for the [Microprocessor Systems](https://www.ece.ntua.gr/en/undergraduate/courses/3046) course, during the 6th semester of the School of Electrical and Computer Engineering at the National Technical University of Athens.
 
+## Team Members
+
+- [Georgios Kyriakopoulos](https://github.com/geokyr)
+- [Serafeim Tzelepis](https://github.com/sertze)
+
 ## Lab Assignments
 
 There were 5 lab assignments in total, each one consisting of a set of problems. These problems had to be solved using the following simulators.
