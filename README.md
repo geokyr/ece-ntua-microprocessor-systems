@@ -11,14 +11,14 @@ Lab Assignments and Exam Answers for the [Microprocessor Systems](https://www.ec
 
 There were 5 lab assignments in total, each one consisting of a set of problems. These problems had to be solved using the following simulators.
 
-- [μLab](http://mycourses.ntua.gr/document/goto/?url=%2F8085.zip&cidReq=ECE1175), a simulator for the 8085 microprocessor
-- [Atmel AVR Studio 7](http://www.atmel.com/tools/ATMELSTUDIO.aspx), a simulator for AVR microcontrollers
-- [EasyAVR6 + Flash programmer](https://www.mikroe.com/easyavr), drivers for the EasyAVR6 development board
-- [emu8086](http://mycourses.ntua.gr/document/goto/?url=%2F8086_tools.zip&cidReq=ECE1175), a simulator for the 8085 microprocessor
+- [μLab](http://mycourses.ntua.gr/document/goto/?url=%2F8085.zip&cidReq=ECE1175) - Simulator for the 8085 microprocessor
+- [Atmel AVR Studio 7](http://www.atmel.com/tools/ATMELSTUDIO.aspx) - Simulator for AVR microcontrollers
+- [EasyAVR6 + Flash programmer](https://www.mikroe.com/easyavr) - Drivers for the EasyAVR6 development board
+- [emu8086](http://mycourses.ntua.gr/document/goto/?url=%2F8086_tools.zip&cidReq=ECE1175) - Simulator for the 8085 microprocessor
 
 The topics covered by each assignment follow.
 
-### Lab 01
+## Lab 01
 
 - 8085 Microprocessor
 - Assembly Language
@@ -31,7 +31,7 @@ The topics covered by each assignment follow.
 - Mealy and Moore Machines
 - Cost Analysis and Design Optimization
 
-### Lab 02
+## Lab 02
 
 - Buttons
 - 7-Segment Display
@@ -40,7 +40,7 @@ The topics covered by each assignment follow.
 - Memory Control Signals
 - Memory Mapping
 
-### Lab 03
+## Lab 03
 
 - Interrupts
 - Interrupt Service Routine
@@ -48,13 +48,13 @@ The topics covered by each assignment follow.
 - PC and SP
 - Data Transfer
 
-### Lab 04
+## Lab 04
 
 - AVR Microcontroller
 - C Programming
 - Debugging and Breakpoints
 
-### Lab 05
+## Lab 05
 
 - 8086 Microprocessor
 - Binary, Octal, Decimal, Hexadecimal Number Systems
