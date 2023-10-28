@@ -42,4 +42,5 @@ FLSL:
     STA 3000H
     CALL DELB
     JMP START
-    END
+
+END

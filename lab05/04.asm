@@ -67,7 +67,9 @@ MAIN PROC FAR
         JMP START           ; jump to start
     FINISH:
         EXIT
-MAIN ENDP
-CODE ENDS
-END MAIN
 
+MAIN ENDP
+
+CODE ENDS
+
+END MAIN

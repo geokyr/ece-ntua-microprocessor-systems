@@ -27,4 +27,5 @@ RIGHT:
     RRC
     MOV D,A
     JMP START
-    END
+
+END

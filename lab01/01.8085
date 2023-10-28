@@ -13,4 +13,5 @@ FIRST:
     CMA
     STA 3000H
     JMP START
-    END
+
+END
