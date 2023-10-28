@@ -43,7 +43,6 @@ The topics covered by each assignment follow.
 ## Lab 03
 
 - Interrupts
-- Interrupt Service Routine
 - Macros
 - PC and SP
 - Data Transfer
