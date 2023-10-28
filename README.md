@@ -14,7 +14,7 @@ There were 5 lab assignments in total, each one consisting of a set of problems.
 - [μLab](http://mycourses.ntua.gr/document/goto/?url=%2F8085.zip&cidReq=ECE1175) - Simulator for the 8085 microprocessor
 - [Atmel AVR Studio 7](http://www.atmel.com/tools/ATMELSTUDIO.aspx) - Simulator for AVR microcontrollers
 - [EasyAVR6 + Flash programmer](https://www.mikroe.com/easyavr) - Drivers for the EasyAVR6 development board
-- [emu8086](http://mycourses.ntua.gr/document/goto/?url=%2F8086_tools.zip&cidReq=ECE1175) - Simulator for the 8085 microprocessor
+- [emu8086](http://mycourses.ntua.gr/document/goto/?url=%2F8086_tools.zip&cidReq=ECE1175) - Simulator for the 8086 microprocessor
 
 The topics covered by each assignment follow.
 
